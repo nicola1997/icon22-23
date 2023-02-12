@@ -37,7 +37,8 @@ https://www.swi-prolog.org/download/stable/bin/swipl-8.2.4-1.x64.exe.envelope
 **Creazione Knowledge Base:**
 
  python kb\kb.py datasets\dataset_prolog.csv
- **Creazione Belief Network:**
+ 
+**Creazione Belief Network:**
 
  python bn/ui.py 
 
