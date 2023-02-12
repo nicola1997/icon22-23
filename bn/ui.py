@@ -1,5 +1,4 @@
 import pyswip as psw
-
 import pandas as pd
 from pgmpy.models import  BayesianNetwork
 from pgmpy.estimators import MaximumLikelihoodEstimator
