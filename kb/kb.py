@@ -73,6 +73,9 @@ class KnowledgeBase:
                 file.write('titolo_genere(' + str(value["titolo_originale"]) + ',' + str(value["genere"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
+                file.write('titolo_paese(' + str(value["titolo_originale"]) + ',' + str(value["paese"]) + ').\n')
+            for p in self.dataframe.iterrows():
+                value = p[1]
                 file.write('titolo_durata(' + str(value["titolo_originale"]) + ',' + str(value["durata"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
