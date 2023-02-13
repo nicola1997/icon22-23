@@ -38,7 +38,7 @@ https://www.swi-prolog.org/download/stable/bin/swipl-8.2.4-1.x64.exe.envelope
 
  python kb\kb.py datasets\dataset_prolog.csv
  
-**Creazione Belief Network:**
+**Creazione Bayesian Network:**
 
  python bn/ui.py 
 
