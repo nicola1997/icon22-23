@@ -112,27 +112,18 @@ class KnowledgeBase:
         file = open(self.kbPath, "a")
         print('Creating Rules...')
         #regole basate su cluster
-        file.write('film_simili(X,Y) :- cluster_titolo(X,C), cluster_titolo(Y,D), C = D.\n')
+        file.write('film_simili(X,Y) :- titolo_cluster(X,C), titolo_cluster(Y,D), C = D.\n')
 
-        file.write('attori_registi_work(X,Y) :- attori_titolo(Z,X) ,registi_titolo(Z,Y) .\n')
-        file.write('registi_attori_work(X,Y) :- registi_titolo(Z,X) ,attori_titolo(Z,Y) .\n')
+        file.write('attori_registi_work(X,Y) :- titolo_attori(C,X) ,titolo_registi(D,Y), C = D.\n')
+        file.write('registi_attori_work(X,Y) :- titolo_registi(C,X) ,titolo_attori(D,Y),C = D.\n')
 
-        file.write('film_stesso_durata(X,Y) :- durata_titolo(Z,X) ,durata_titolo(Z,Y) .\n')
+        file.write('film_stesso_durata(X,Y) :- titolo_durata(X,C) ,titolo_durata(Y,D), C = D.\n') #Z è la durata, X,Y due film
 
-        file.write('film_stesso_anno(X,Y) :- anno_titolo(Z,X) ,durata_titolo(Z,Y) .\n')
+        file.write('film_stesso_anno(X,Y) :- titolo_anno(X,C) ,titolo_anno(Y,D) ,C = D.\n')
 
-        file.write('film_stesso_genere(X,Y) :- genere_titolo(Z,X) ,genere_titolo(Z,Y) .\n')
+        file.write('film_stesso_genere(X,Y) :- titolo_genere(X,C) ,titolo_genere(Y,D),C = D.\n')
 
-        file.write('film_stesso_paese(X,Y) :- paese_titolo(Z,X) ,paese_titolo(Z,Y) .\n')
-
-
-
-
-
-
-
-
-
+        file.write('film_stesso_paese(X,Y) :- titolo_paese(X,C) ,titolo_paese(Y,D),C = D.\n')
 
         file.close()
 def main():
