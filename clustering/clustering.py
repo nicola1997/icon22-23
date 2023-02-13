@@ -232,13 +232,13 @@ def main():
         bn_dataset=discretizzazione_anno(bn_dataset)
         bn_dataset=discretizzazione_durata(bn_dataset)
         bn_dataset=discretizzazione_hrite(bn_dataset)
+        bn_dataset=bn_dataset.drop(['registi','attori','filmtv_id','titolo_originale'],axis=1)
         bn_dataset.to_csv('./datasets/bn_dataset.csv',index=False)
 
-        df = pd.read_csv(r"C:\Users\ndipi\Desktop\progetto-icon22-23\datasets\dataset_clustering.csv")
-        print("Loading elbow plot...")
-        #elbow_plot(df, 100) #richiede molto tempo per elaborare
+        #df = pd.read_csv(r"C:\Users\ndipi\Desktop\progetto-icon22-23\datasets\dataset_clustering.csv")
+        #elbow_plot(df, 100) #10 min
         print("Clustering Done.")
-        df=pd.read_csv('./datasets/dataset_prolog.csv')
+        #df=pd.read_csv('./datasets/dataset_prolog.csv')
         #plot_durata_voto(df_prolog)
         #plot_genere_voto(df_prolog)
         #plot_paese_voto(df_prolog)
