@@ -64,43 +64,43 @@ class KnowledgeBase:
         try:
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('id_titolo(' + str(value["titolo_originale"]) + ',' + str(value["filmtv_id"])+ ').\n')
+                file.write('titolo_id(' + str(value["titolo_originale"]) + ',' + str(value["filmtv_id"])+ ').\n')
             for p in self.dataframe.iterrows():
                  value = p[1]
-                 file.write('anno_titolo(' + str(value["titolo_originale"]) + ',' + str(value["anno"]) + ').\n')
+                 file.write('titolo_anno(' + str(value["titolo_originale"]) + ',' + str(value["anno"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('genere_titolo(' + str(value["titolo_originale"]) + ',' + str(value["genere"]) + ').\n')
+                file.write('titolo_genere(' + str(value["titolo_originale"]) + ',' + str(value["genere"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('durata_titolo(' + str(value["titolo_originale"]) + ',' + str(value["durata"]) + ').\n')
+                file.write('titolo_durata(' + str(value["titolo_originale"]) + ',' + str(value["durata"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('registi_titolo(' + str(value["titolo_originale"]) + ',' + str(value["registi"]) + ').\n')
+                file.write('titolo_registi(' + str(value["titolo_originale"]) + ',' + str(value["registi"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('attori_titolo(' + str(value["titolo_originale"]) + ',' + str(value["attori"]) + ').\n')
+                file.write('titolo_attori(' + str(value["titolo_originale"]) + ',' + str(value["attori"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('humor_titolo(' + str(value["titolo_originale"]) + ',' + str(value["humor"]) + ').\n')
+                file.write('titolo_humor(' + str(value["titolo_originale"]) + ',' + str(value["humor"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('ritmo_titolo(' + str(value["titolo_originale"]) + ',' + str(value["ritmo"]) + ').\n')
+                file.write('titolo_ritmo(' + str(value["titolo_originale"]) + ',' + str(value["ritmo"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('impegno_titolo(' + str(value["titolo_originale"]) + ',' + str(value["impegno"]) + ').\n')
+                file.write('titolo_impegno(' + str(value["titolo_originale"]) + ',' + str(value["impegno"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('tensione_titolo(' + str(value["titolo_originale"]) + ',' + str(value["tensione"]) + ').\n')
+                file.write('titolo_tensione(' + str(value["titolo_originale"]) + ',' + str(value["tensione"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('erotismo_titolo(' + str(value["titolo_originale"]) + ',' + str(value["erotismo"]) + ').\n')
+                file.write('titolo_erotismo(' + str(value["titolo_originale"]) + ',' + str(value["erotismo"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('cluster_titolo(' + str(value["titolo_originale"]) + ',' + str(value["cluster"]) + ').\n')
+                file.write('titolo_cluster(' + str(value["titolo_originale"]) + ',' + str(value["cluster"]) + ').\n')
             for p in self.dataframe.iterrows():
                 value = p[1]
-                file.write('voto_titolo(' + str(value["titolo_originale"]) + ',' + str(value["voto_medio"]) + ').\n')
+                file.write('titolo_voto_medio(' + str(value["titolo_originale"]) + ',' + str(value["voto_medio"]) + ').\n')
 
         except Exception as e:
               print("Exception " + str(e))
@@ -117,7 +117,9 @@ class KnowledgeBase:
         file.write('attori_registi_work(X,Y) :- attori_titolo(Z,X) ,registi_titolo(Z,Y) .\n')
         file.write('registi_attori_work(X,Y) :- registi_titolo(Z,X) ,attori_titolo(Z,Y) .\n')
 
-        file.write('film_stesso_anno(X,Y) :- durata_titolo(Z,X) ,durata_titolo(Z,Y) .\n')
+        file.write('film_stesso_durata(X,Y) :- durata_titolo(Z,X) ,durata_titolo(Z,Y) .\n')
+
+        file.write('film_stesso_anno(X,Y) :- anno_titolo(Z,X) ,durata_titolo(Z,Y) .\n')
 
         file.write('film_stesso_genere(X,Y) :- genere_titolo(Z,X) ,genere_titolo(Z,Y) .\n')
 
