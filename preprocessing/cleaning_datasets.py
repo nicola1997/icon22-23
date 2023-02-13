@@ -9,7 +9,7 @@ from unidecode import unidecode
 def cleaning_dataset(dataframe):
     print("Pulizia generale dataframe...") #humor,ritmo,impegno,tensione,erotismo
     try:
-     dataframe=dataframe.drop(["titolo_italiano",'voto_critica','voto_pubblico','voti_totali','descrizione','note','titolo_italiano'],axis=1)
+     dataframe=dataframe.drop(["titolo_italiano",'voto_critica','voto_pubblico','voti_totali','descrizione','note'],axis=1)
      dataframe = dataframe.drop_duplicates(subset=['filmtv_id'])
      dataframe = dataframe.drop_duplicates(subset=['titolo_originale'])
      dataframe = dataframe[~((dataframe['humor'].astype(str).str.contains("0")) & (dataframe['ritmo'].astype(str).str.contains("0"))
