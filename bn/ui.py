@@ -55,13 +55,11 @@ def help():
     print("'inference' to do inference with Belief Network")
     print("'quit' to exit\n")
 def bn():
-    #class_of_erotismo,class_of_tensione,class_of_impegno,class_of_ritmo,class_of_humor,class_of_time,class_of_year,class_of_voto,
     #genere,paese
     #P(voto|genere)
     #P(voto|paese)
     #P(voto|anno)
     #P(voto|durata)
-#
     #P(genere|erotismo)
     #P(genere|tensione)
     #P(genere|impegno)
@@ -73,13 +71,11 @@ def bn():
     model = BayesianNetwork([('genere', 'class_of_erotismo'),('genere', 'class_of_tensione'),
                              ('genere', 'class_of_impegno'),('genere', 'class_of_ritmo'),('genere', 'class_of_humor'),
                              ])
-
     # addestra la rete bayesiana
     model.fit(df, estimator=MaximumLikelihoodEstimator)
 
     inference = VariableElimination(model)
     prob = inference.query(variables=['genere'], evidence={'class_of_humor': "good_rating" })
-#
     print(prob)
 
 
