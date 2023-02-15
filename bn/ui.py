@@ -18,7 +18,7 @@ def dropping(answer):
     :return: dataframe con le risposte esatte per quella query
     """
     dataframe = pd.DataFrame(answer)
-    canc = set() #insiemre rappresentate le colonne da cancellare
+    canc = set()
     for index, row in dataframe.iterrows():
         for col in dataframe.columns:
             if isinstance(row[col], psw.Variable):
@@ -55,7 +55,7 @@ def help():
     print("'inference' to do inference with Belief Network")
     print("'quit' to exit\n")
 def bn():
-    #genere,paese
+
     #P(voto|genere)
     #P(voto|paese)
     #P(voto|anno)
